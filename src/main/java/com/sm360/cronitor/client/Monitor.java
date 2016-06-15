@@ -1,65 +1,53 @@
 package com.sm360.cronitor.client;
 
+import com.sm360.cronitor.client.commandexecutors.CompleteCommandExecutor;
+import com.sm360.cronitor.client.commandexecutors.FailCommandExecutor;
+import com.sm360.cronitor.client.commandexecutors.PauseCommandExecutor;
+import com.sm360.cronitor.client.commandexecutors.RunCommandExecutor;
+
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.logging.Logger;
+import java.net.URISyntaxException;
 
 public class Monitor {
-
-    private final static Logger logger = Logger.getLogger(Monitor.class.getName());
-
-    public static final String CRONITOR_BASE_DOMAIN = "https://cronitor.link/%s/%s";
 
     private String authKey;
     private String monitorCode;
 
-    public Monitor(String authKey, String monitorCode){
+    public Monitor(String authKey, String monitorCode) {
 
         this.authKey = authKey;
         this.monitorCode = monitorCode;
     }
 
-    public void run() throws IOException {
-
-        executeCommand(Command.RUN);
+    public void run() throws IOException, URISyntaxException {
+        new RunCommandExecutor().execute(monitorCode, authKey);
     }
 
-    public void pause(Integer pauseTimeInHours) throws IOException {
-
-        executeCommand(Command.PAUSE, pauseTimeInHours.toString());
+    public void run(String message) throws IOException, URISyntaxException {
+        new RunCommandExecutor().withMessage(message).execute(monitorCode, authKey);
     }
 
-    public void complete() throws IOException {
-
-        executeCommand(Command.COMPLETE);
+    public void pause(Integer pauseTimeInHours) throws IOException, URISyntaxException {
+        new PauseCommandExecutor(pauseTimeInHours).execute(monitorCode, authKey);
     }
 
-    public void fail() throws IOException {
-
-        executeCommand(Command.FAIL);
+    public void unpause() throws IOException, URISyntaxException {
+        new PauseCommandExecutor(0).execute(monitorCode, authKey);
     }
 
-    private void executeCommand(Command command) throws IOException {
-        executeCommand(command, null);
+    public void complete() throws IOException, URISyntaxException {
+        new CompleteCommandExecutor().execute(monitorCode, authKey);
     }
 
-    private void executeCommand(Command command, String parameter) throws IOException {
-
-        logger.info(String.format("Calling cronitor [%s] using monitorCode[%s]", command, monitorCode));
-        String url = String.format(CRONITOR_BASE_DOMAIN, monitorCode, command.getValue());
-        if (parameter != null) {
-            url += "/" + parameter;
-        }
-        callService(new URL(url));
+    public void complete(String message) throws IOException, URISyntaxException {
+        new CompleteCommandExecutor().withMessage(message).execute(monitorCode, authKey);
     }
 
-    private void callService(URL url) throws IOException {
+    public void fail() throws IOException, URISyntaxException {
+        new FailCommandExecutor().execute(monitorCode, authKey);
+    }
 
-        url = new URL(url.toString() + "?auth_key=" + authKey);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.connect();
-        connection.getInputStream();
-        connection.disconnect();
+    public void fail(String message) throws IOException, URISyntaxException {
+        new FailCommandExecutor().withMessage(message).execute(monitorCode, authKey);
     }
 }
