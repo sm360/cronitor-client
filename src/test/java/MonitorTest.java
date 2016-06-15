@@ -30,7 +30,7 @@ public class MonitorTest {
         Monitor monitor = client.getMonitor("zkzG99");
         monitor.run();
         monitor.complete();
-    }§
+    }
 
     @Test
     public void cronitorFailTest() throws IOException {
