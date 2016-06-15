@@ -1,9 +1,6 @@
 import com.sm360.cronitor.client.CronitorClient;
-import com.sm360.cronitor.client.Monitor;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import java.io.IOException;
 
 @Ignore("Manual tests")
 public class MonitorTest {
@@ -11,32 +8,32 @@ public class MonitorTest {
     private CronitorClient client = new CronitorClient("56982a2cc95641c4b929459d95c39029");
 
     @Test
-    public void cronitorRunTest() throws IOException {
+    public void cronitorRunTest() throws Exception {
 
-        client.getMonitor("zkzG99").run();
+        client.getMonitor("F80Gdl").run("messageRun");
     }
 
     @Test
-    public void cronitorPauseTest() throws IOException {
+    public void cronitorPauseTest() throws Exception {
 
-        Monitor monitor = client.getMonitor("zkzG99");
-        monitor.run();
-        monitor.pause(1);
+        client.getMonitor("F80Gdl").pause(1);
     }
 
     @Test
-    public void cronitorCompleteTest() throws IOException {
+    public void cronitorUnpauseTest() throws Exception {
 
-        Monitor monitor = client.getMonitor("zkzG99");
-        monitor.run();
-        monitor.complete();
+        client.getMonitor("F80Gdl").unpause();
     }
 
     @Test
-    public void cronitorFailTest() throws IOException {
+    public void cronitorCompleteTest() throws Exception {
 
-        Monitor monitor = client.getMonitor("zkzG99");
-        monitor.run();
-        monitor.fail();
+        client.getMonitor("F80Gdl").complete("messageComplete");
+    }
+
+    @Test
+    public void cronitorFailTest() throws Exception {
+
+        client.getMonitor("F80Gdl").fail("messageFail");
     }
 }
