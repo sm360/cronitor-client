@@ -1,4 +1,4 @@
-package com.sm360.cronitor.client.commandexecutors;
+package com.sm360.cronitor.client.urlgenerators;
 
 import com.sm360.cronitor.client.Command;
 import org.apache.http.client.utils.URIBuilder;

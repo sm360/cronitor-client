@@ -1,9 +1,9 @@
 package com.sm360.cronitor.client;
 
-import com.sm360.cronitor.client.commandexecutors.CompleteCommandUrlGenerator;
-import com.sm360.cronitor.client.commandexecutors.FailCommandUrlGenerator;
-import com.sm360.cronitor.client.commandexecutors.PauseCommandUrlGenerator;
-import com.sm360.cronitor.client.commandexecutors.RunCommandUrlGenerator;
+import com.sm360.cronitor.client.urlgenerators.CompleteCommandUrlGenerator;
+import com.sm360.cronitor.client.urlgenerators.FailCommandUrlGenerator;
+import com.sm360.cronitor.client.urlgenerators.PauseCommandUrlGenerator;
+import com.sm360.cronitor.client.urlgenerators.RunCommandUrlGenerator;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
