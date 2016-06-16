@@ -3,19 +3,18 @@ package com.sm360.cronitor.client.commandexecutors;
 import com.sm360.cronitor.client.Command;
 import org.apache.http.client.utils.URIBuilder;
 
-import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 
-public class PauseCommandExecutor extends CommandExecutor {
+public class PauseCommandUrlGenerator extends CommandUrlGenerator {
 
     private Integer timeoutInHours;
 
-    public PauseCommandExecutor(Integer timeoutInHours) {
+    public PauseCommandUrlGenerator(Integer timeoutInHours) {
         this.timeoutInHours = timeoutInHours;
     }
 
     @Override
-    protected URIBuilder generateURIBuilder(String baseURL) throws URISyntaxException, MalformedURLException {
+    protected URIBuilder generateURIBuilder(String baseURL) throws URISyntaxException {
 
         baseURL += "/" + Command.PAUSE.getValue();
         baseURL += "/" + timeoutInHours;
