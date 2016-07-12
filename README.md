@@ -17,7 +17,11 @@ And declare a new bean in your Spring configuration :
 ```
     
 ## How to use it in your routines ?
-
+Simply inject this bean in the class containing the routine to monitor :
+```
+@Resource
+private CronitorClient cronitorClient;
+```
 ### /run
 
 ### /complete
