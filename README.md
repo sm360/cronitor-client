@@ -16,7 +16,7 @@ Simply add this line in your pom.xml file :
 
 And declare a new bean in your Spring configuration :
 ```
-// If you are using an auth key for your api calls
+// If you are using an auth key for conitor
 <bean id="cronitorClient" class="com.sm360.cronitor.client.CronitorClient">
      <constructor-arg index="0" value="authKey"/>
 </bean>
