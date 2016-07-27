@@ -11,24 +11,89 @@ Simply add this line in your pom.xml file :
     <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
+
+### Usage with Spring
+
 And declare a new bean in your Spring configuration :
 ```
-<beans:bean id="cronitorClient" class="com.sm360.cronitor.client.CronitorClient" />
+// If you are using an auth key for your api calls
+<bean id="cronitorClient" class="com.sm360.cronitor.client.CronitorClient">
+     <constructor-arg index="0" value="authKey"/>
+</bean>
+
+// Otherwise
+<bean id="cronitorClient" class="com.sm360.cronitor.client.CronitorClient" />
 ```
-    
-## How to use it in your routines ?
+
 Simply inject this bean in the class containing the routine to monitor :
 ```
 @Resource
 private CronitorClient cronitorClient;
 ```
-### /run
+### Examples
 
-### /complete
-
-### /fail
-
-### /pause
+### ping /run for a monitor
+```
+    // Initialize cronitorClient
+    CronitorClient cronitorClient = new CronitorClient();
+    
+    try {
+        //Ping /run of your monitor
+        cronitorClient.run(monitorCode);
+    } catch (Exception e) {
+    
+    }
+```
+### ping /complete for a monitor
+```
+    // Initialize cronitorClient
+    CronitorClient cronitorClient = new CronitorClient();
+    
+    try {
+        //Ping /complete of your monitor
+        cronitorClient.complete(monitorCode);
+    } catch (Exception e) {
+    
+    }
+```
+### ping /fail for a monitor
+```
+    // Initialize cronitorClient
+    CronitorClient cronitorClient = new CronitorClient();
+    
+    try {
+        //Ping /fail of your monitor with no message
+        cronitorClient.fail(monitorCode);
+        //Ping /fail of your monitor with a message
+        //cronitorClient.fail(monitorCode, message);
+    } catch (Exception e) {
+    
+    }
+```
+### pause a monitor
+```
+    // Initialize cronitorClient
+    CronitorClient cronitorClient = new CronitorClient();
+    
+    try {
+        //Pause a monitor
+        cronitorClient.pause(monitorCode, timeoutInHouirs);
+    } catch (Exception e) {
+    
+    }
+```
+### unpause a monitor
+```
+    // Initialize cronitorClient
+    CronitorClient cronitorClient = new CronitorClient();
+    
+    try {
+        //Unpause a monitor
+        cronitorClient.unpause(monitorCode);
+    } catch (Exception e) {
+    
+    }
+```
 
 ## How to contact us ?
 
