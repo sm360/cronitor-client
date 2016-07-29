@@ -7,7 +7,7 @@ cronitor-client is a simple Java library designed to use the awesome Cronitor AP
 Simply add this line in your pom.xml file :
 ```
 <dependency>
-    <groupId>com.sm360.cronitor</groupId>
+    <groupId>ca.sm360.cronitor</groupId>
     <artifactId>cronitor-client</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
