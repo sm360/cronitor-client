@@ -18,12 +18,12 @@ Simply add this line in your pom.xml file :
 Declare a new bean in your Spring configuration :
 ```
 // if you are using the Auth Key of your Cronitor account
-<bean id="cronitorClient" class="com.sm360.cronitor.client.CronitorClient">
+<bean id="cronitorClient" class="ca.sm360.cronitor.client.CronitorClient">
      <constructor-arg index="0" value="authKey"/>
 </bean>
 
 // otherwise
-<bean id="cronitorClient" class="com.sm360.cronitor.client.CronitorClient" />
+<bean id="cronitorClient" class="ca.sm360.cronitor.client.CronitorClient" />
 ```
 
 Then simply inject this bean in the class containing the routine to monitor :
