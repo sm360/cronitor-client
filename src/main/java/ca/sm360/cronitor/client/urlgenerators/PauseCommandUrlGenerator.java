@@ -1,6 +1,6 @@
-package com.sm360.cronitor.client.urlgenerators;
+package ca.sm360.cronitor.client.urlgenerators;
 
-import com.sm360.cronitor.client.Command;
+import ca.sm360.cronitor.client.Command;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.URISyntaxException;

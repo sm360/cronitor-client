@@ -1,4 +1,4 @@
-package com.sm360.cronitor.client;
+package ca.sm360.cronitor.client;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

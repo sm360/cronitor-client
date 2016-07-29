@@ -1,4 +1,4 @@
-package com.sm360.cronitor.client;
+package ca.sm360.cronitor.client;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
