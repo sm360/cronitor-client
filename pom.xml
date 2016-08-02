@@ -8,7 +8,7 @@
     <artifactId>cronitor-client</artifactId>
     <version>1.0.0</version>
     <name>Cronitor Client</name>
-    <description>cronitor-client is a simple Java library designed to use the awesome Cronitor API in order to monitor routines of your Java projects</description>
+    <description>cronitor-client is a simple Java library designed to help you monitoring, with www.cronitor.io, the routines of your Java projects</description>
     <url>https://github.com/sm360/cronitor-client</url>
 
     <scm>

@@ -1,7 +1,7 @@
 # cronitor-client
 
 ## What is it ?
-cronitor-client is a simple Java library designed to use the awesome Cronitor API in order to monitor routines of your Java projects.
+cronitor-client is a simple Java library designed to help you monitoring, with www.cronitor.io, the routines of your Java projects.
 
 ## How to install it on your Maven project ?
 Simply add this line in your pom.xml file :
