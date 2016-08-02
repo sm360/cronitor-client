@@ -6,7 +6,7 @@
 
     <groupId>ca.sm360.cronitor</groupId>
     <artifactId>cronitor-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>Cronitor Client</name>
     <description>cronitor-client is a simple Java library designed to help you monitoring, with www.cronitor.io, the routines of your Java projects</description>
     <url>https://github.com/sm360/cronitor-client</url>
@@ -74,6 +74,11 @@
                     <artifactId>hamcrest-core</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
         </dependency>
     </dependencies>
 
