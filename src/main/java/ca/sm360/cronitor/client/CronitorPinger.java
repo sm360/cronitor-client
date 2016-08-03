@@ -25,7 +25,7 @@ public class CronitorPinger {
             connection.getInputStream();
             connection.disconnect();
         } catch (SocketTimeoutException e) {
-            logger.warning(String.format("fail to call url [%s] because of a timeout trigger after %d seconds",
+            logger.warning(String.format("Failed to call url [%s] : a timeout occurred after %d seconds",
                     commandURL, cronitorPingTimeoutInSecond));
         }
     }

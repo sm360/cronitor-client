@@ -34,7 +34,7 @@ public class CronitorClient {
             URL commandUrl = new RunCommandUrlGenerator().buildURI(monitorCode, apiKey);
             cronitorPinger.ping(commandUrl);
         } else {
-            logger.warning("we can't ping cronitor because the monitor code pass was null or empty");
+            logger.warning("We can't ping /run on cronitor because the monitor code pass was null or empty");
         }
     }
 
@@ -43,7 +43,7 @@ public class CronitorClient {
             URL commandUrl = new RunCommandUrlGenerator().withMessage(message).buildURI(monitorCode, apiKey);
             cronitorPinger.ping(commandUrl);
         } else {
-            logger.warning("we can't ping cronitor because the monitor code pass was null or empty");
+            logger.warning("We can't ping /run on cronitor because the monitor code pass was null or empty");
         }
     }
 
@@ -53,7 +53,7 @@ public class CronitorClient {
             URL commandUrl = new CompleteCommandUrlGenerator().buildURI(monitorCode, apiKey);
             cronitorPinger.ping(commandUrl);
         } else {
-            logger.warning("we can't ping cronitor because the monitor code pass was null or empty");
+            logger.warning("We can't ping /complete on cronitor because the monitor code pass was null or empty");
         }
     }
 
@@ -63,7 +63,7 @@ public class CronitorClient {
             URL commandUrl = new CompleteCommandUrlGenerator().withMessage(message).buildURI(monitorCode, apiKey);
             cronitorPinger.ping(commandUrl);
         } else {
-            logger.warning("we can't ping cronitor because the monitor code pass was null or empty");
+            logger.warning("We can't ping /complete on cronitor because the monitor code pass was null or empty");
         }
     }
 
@@ -73,7 +73,7 @@ public class CronitorClient {
             URL commandUrl = new FailCommandUrlGenerator().buildURI(monitorCode, apiKey);
             cronitorPinger.ping(commandUrl);
         } else {
-            logger.warning("we can't ping cronitor because the monitor code pass was null or empty");
+            logger.warning("We can't ping /fail on cronitor because the monitor code pass was null or empty");
         }
     }
 
@@ -83,7 +83,7 @@ public class CronitorClient {
             URL commandUrl = new FailCommandUrlGenerator().withMessage(message).buildURI(monitorCode, apiKey);
             cronitorPinger.ping(commandUrl);
         } else {
-            logger.warning("we can't ping cronitor because the monitor code pass was null or empty");
+            logger.warning("We can't ping /fail on cronitor because the monitor code pass was null or empty");
         }
     }
 
