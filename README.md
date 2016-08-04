@@ -1,7 +1,7 @@
 # cronitor-client
 
 ## What is it ?
-cronitor-client is a simple Java library designed to help you monitoring, with www.cronitor.io, the routines of your Java projects.
+Cronitor-client is a simple Java library designed to help monitor your app. With the help of www.cronitor.io, you can easily monitor the routines of your Java projects.
 
 ## How to install it on your Maven project ?
 Simply add this line in your pom.xml file :
@@ -9,7 +9,7 @@ Simply add this line in your pom.xml file :
 <dependency>
     <groupId>ca.sm360.cronitor</groupId>
     <artifactId>cronitor-client</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -26,7 +26,7 @@ Declare a new bean in your Spring configuration :
 <bean id="cronitorClient" class="ca.sm360.cronitor.client.CronitorClient" />
 ```
 
-Then simply inject this bean in the class containing the routine to monitor :
+Then simply inject this bean into the class containing the routine to monitor :
 ```
 @Resource
 private CronitorClient cronitorClient;
