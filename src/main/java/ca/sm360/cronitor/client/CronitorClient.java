@@ -87,10 +87,10 @@ public class CronitorClient {
         }
     }
 
-    public void pause(String monitorCode, int timeoutInHouirs) throws URISyntaxException, IOException {
+    public void pause(String monitorCode, int timeoutInHours) throws URISyntaxException, IOException {
 
         if(StringUtils.isNotBlank(monitorCode)) {
-            URL commandUrl = new PauseCommandUrlGenerator(timeoutInHouirs).buildURI(monitorCode, apiKey);
+            URL commandUrl = new PauseCommandUrlGenerator(timeoutInHours).buildURI(monitorCode, apiKey);
             cronitorPinger.ping(commandUrl);
         } else {
             logger.warning("we can't pause monitor because the monitor code is null or empty");
