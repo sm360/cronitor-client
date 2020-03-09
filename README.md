@@ -63,7 +63,7 @@ CronitorClient cronitorClient = new CronitorClient();
     try {
         // ping the /fail URL on your monitor with no extra message
         cronitorClient.fail(monitorCode);
-        
+
         // ping the /fail URL on your monitor with an extra message
         cronitorClient.fail(monitorCode, message);
     } catch (Exception e) {
@@ -89,8 +89,12 @@ CronitorClient cronitorClient = new CronitorClient();
     }
 ```
 
+## Development
+
+The contained Dockerfile/docker-compose.yml file will allow you to build and test this library. Build the library with `docker-compose up`. Run tests with `docker-compose run test`.
+
 ## How to contact us ?
 
-If you want to share an idea, report an issue or just say hello, do not hesitate to write to us at github@360.agency 
+If you want to share an idea, report an issue or just say hello, do not hesitate to write to us at github@360.agency
 
 Have a great day!
