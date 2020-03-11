@@ -92,6 +92,12 @@ CronitorClient cronitorClient = new CronitorClient();
 
 ## How to contact us ?
 
-If you want to share an idea, report an issue or just say hello, do not hesitate to write to us at github@360.agency 
+If you want to share an idea, report an issue or just say hello, do not hesitate to write to us at support@cronitor.io 
 
 Have a great day!
+
+## Authors
+(@lboix)[https://github.com/lboix]
+(@nerny)[https://github.com/nerny]
+(@firone)[[https://github.com/firone]
+(@aflanagan)[https://github.com/aflanagan]
