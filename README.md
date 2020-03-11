@@ -8,9 +8,9 @@ This java library provides a simple abstraction for the pinging of a Cronitor mo
 Simply add this line in your pom.xml file :
 ```
 <dependency>
-    <groupId>ca.sm360.cronitor</groupId>
-    <artifactId>cronitor-client</artifactId>
-    <version>1.0.1</version>
+    <groupId>io.cronitor</groupId>
+    <artifactId>cronitor-java</artifactId>
+    <version>1.1.0</version>
 </dependency>
 ```
 
