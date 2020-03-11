@@ -26,7 +26,7 @@ public class CronitorPinger {
     public void ping(String command, String monitorCode, String apiKey, String message) throws IOException, URISyntaxException {
         for (int i=0; i<4; i++) {
             Boolean usePrimaryPingDomain = i < 2;
-            setURL(usePrimaryPingDomain, command, monitorCode, apiKey, message);
+            setConnection(getURL(usePrimaryPingDomain, command, monitorCode, apiKey, message));
             if (_ping()) { return; }
         }
     }
@@ -34,27 +34,24 @@ public class CronitorPinger {
     public void pause(String monitorCode, int timeoutHours, String apiKey) throws IOException, URISyntaxException {
         for (int i=0; i<4; i++) {
             Boolean usePrimaryPingDomain = i < 2;
-            setURL(usePrimaryPingDomain, monitorCode, timeoutHours, apiKey);
+            setConnection(getURL(usePrimaryPingDomain, monitorCode, timeoutHours, apiKey));
             if (_ping()) { return; }
         }
     }
 
     // methods below are left open to package for ease of testing purposes.
-	void setURL(Boolean usePrimaryPingDomain, String command, String monitorCode, String apiKey, String message) throws IOException, URISyntaxException {
-		this.url = new CommandUrlGenerator(usePrimaryPingDomain).buildURI(command, monitorCode, apiKey, message);
+	URL getURL(Boolean usePrimaryPingDomain, String command, String monitorCode, String apiKey, String message) throws IOException, URISyntaxException {
+		return new CommandUrlGenerator(usePrimaryPingDomain).buildURI(command, monitorCode, apiKey, message);
     }
 
-    void setURL(Boolean usePrimaryPingDomain, String monitorCode, int timeoutHours, String apiKey) throws IOException, URISyntaxException {
-		this.url = new CommandUrlGenerator(usePrimaryPingDomain).buildPauseURI(monitorCode, timeoutHours, apiKey);
+    URL getURL(Boolean usePrimaryPingDomain, String monitorCode, int timeoutHours, String apiKey) throws IOException, URISyntaxException {
+		return  new CommandUrlGenerator(usePrimaryPingDomain).buildPauseURI(monitorCode, timeoutHours, apiKey);
     }
 
 
-    void _setConnection() {
-        if (this.url == null) {
-             logger.warning("Cannot establish connection. No URL is set.");
-         }
+    void setConnection(URL url) {
         try {
-            this.connection = (HttpURLConnection) this.url.openConnection();
+            this.connection = (HttpURLConnection) url.openConnection();
             this.connection.setConnectTimeout(cronitorPingTimeoutInSecond * 1000);
         } catch (IOException e) {
             logger.warning(String.format("Unable to establish connection to %s", url.getPath()));
@@ -62,7 +59,6 @@ public class CronitorPinger {
       }
 
     boolean _ping() throws URISyntaxException {
-        this._setConnection();
         try {
             logger.warning(String.format(this.connection.getURL().toString()));
             this.connection.connect();
