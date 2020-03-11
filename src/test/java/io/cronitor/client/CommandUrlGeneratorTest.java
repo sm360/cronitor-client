@@ -2,11 +2,13 @@ package io.cronitor.client;
 
 import org.junit.Assert;
 import org.junit.Test;
-
+import org.junit.runner.RunWith;
+import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.net.URL;
 import io.cronitor.client.urlgenerators.CommandUrlGenerator;
 
+@RunWith(PowerMockRunner.class)
 public class CommandUrlGeneratorTest {
 
     private CommandUrlGenerator urlGenerator = new CommandUrlGenerator();
