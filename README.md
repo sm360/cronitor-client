@@ -97,7 +97,7 @@ If you want to share an idea, report an issue or just say hello, do not hesitate
 Have a great day!
 
 ## Authors
-[@lboix](https://github.com/lboix)
-[@nerny](https://github.com/nerny)
-[@firone](https://github.com/firone)
-[@aflanagan](https://github.com/aflanagan)
+- [@lboix](https://github.com/lboix)
+- [@nerny](https://github.com/nerny)
+- [@firone](https://github.com/firone)
+- [@aflanagan](https://github.com/aflanagan)
