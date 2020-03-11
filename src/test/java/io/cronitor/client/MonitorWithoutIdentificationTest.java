@@ -1,4 +1,4 @@
-package ca.sm360.cronitor.client;
+package io.cronitor.client;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 // import java.net.URL;
-import ca.sm360.cronitor.client.Command;
+import io.cronitor.client.Command;
 import static org.mockito.Mockito.verify;
 
 

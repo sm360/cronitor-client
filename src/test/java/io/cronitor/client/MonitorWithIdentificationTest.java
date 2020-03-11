@@ -1,4 +1,4 @@
-package ca.sm360.cronitor.client;
+package io.cronitor.client;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +9,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 // import java.net.URL;
 
 import static org.mockito.Mockito.verify;
-import ca.sm360.cronitor.client.Command;
+import io.cronitor.client.Command;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MonitorWithIdentificationTest {

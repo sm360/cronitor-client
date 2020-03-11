@@ -1,4 +1,4 @@
-package ca.sm360.cronitor.client.urlgenerators;
+package io.cronitor.client.urlgenerators;
 
 import org.apache.http.client.utils.URIBuilder;
 

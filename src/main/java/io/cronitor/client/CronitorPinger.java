@@ -1,4 +1,4 @@
-package ca.sm360.cronitor.client;
+package io.cronitor.client;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -7,7 +7,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Logger;
 
-import ca.sm360.cronitor.client.urlgenerators.CommandUrlGenerator;
+import io.cronitor.client.urlgenerators.CommandUrlGenerator;
 
 public class CronitorPinger {
 

@@ -1,4 +1,4 @@
-package ca.sm360.cronitor.client;
+package io.cronitor.client;
 
 public enum Command {
 

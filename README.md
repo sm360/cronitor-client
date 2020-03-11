@@ -7,7 +7,7 @@ Cronitor-client is a simple Java library designed to help monitor your app. With
 Simply add this line in your pom.xml file :
 ```
 <dependency>
-    <groupId>ca.sm360.cronitor</groupId>
+    <groupId>io.cronitor</groupId>
     <artifactId>cronitor-client</artifactId>
     <version>1.0.1</version>
 </dependency>
@@ -18,12 +18,12 @@ Simply add this line in your pom.xml file :
 Declare a new bean in your Spring configuration :
 ```
 // if you are using the Auth Key of your Cronitor account
-<bean id="cronitorClient" class="ca.sm360.cronitor.client.CronitorClient">
+<bean id="cronitorClient" class="io.cronitor.client.CronitorClient">
      <constructor-arg index="0" value="authKey"/>
 </bean>
 
 // otherwise
-<bean id="cronitorClient" class="ca.sm360.cronitor.client.CronitorClient" />
+<bean id="cronitorClient" class="io.cronitor.client.CronitorClient" />
 ```
 
 Then simply inject this bean into the class containing the routine to monitor :

@@ -4,15 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ca.sm360.cronitor</groupId>
-    <artifactId>cronitor-client</artifactId>
-    <version>1.0.1</version>
+    <groupId>io.cronitor.client</groupId>
+    <artifactId>cronitor-java</artifactId>
+    <version>1.1.0</version>
     <name>Cronitor Client</name>
     <description>cronitor-client is a simple Java library designed to help you monitoring, with www.cronitor.io, the routines of your Java projects</description>
-    <url>https://github.com/sm360/cronitor-client</url>
+    <url>https://github.com/cronitorio/cronitor-java</url>
 
     <scm>
-        <url>https://github.com/sm360/cronitor-client.git</url>
+        <url>https://github.com/cronitorio/cronitor-java.git</url>
     </scm>
 
     <developers>
@@ -30,6 +30,11 @@
             <id>lboix</id>
             <name>Lucien Boix</name>
             <email>lucien.boix@gmail.com</email>
+        </developer>
+        <developer>
+            <id>aflanagan</id>
+            <name>August Flanagan</name>
+            <email>august@cronitor.io</email>
         </developer>
     </developers>
 
@@ -51,7 +56,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.9</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.hamcrest</groupId>
@@ -80,7 +85,20 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+         </dependency>
+         <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+         </dependency>
     </dependencies>
+
 
     <distributionManagement>
         <snapshotRepository>
@@ -95,6 +113,7 @@
 
     <properties>
         <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
+        <powermock.version>1.7.4</powermock.version>
     </properties>
 
     <build>
@@ -105,8 +124,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,11 +1,11 @@
-package ca.sm360.cronitor.client;
+package io.cronitor.client;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 
 import java.net.URL;
-import ca.sm360.cronitor.client.urlgenerators.CommandUrlGenerator;
+import io.cronitor.client.urlgenerators.CommandUrlGenerator;
 
 public class CommandUrlGeneratorTest {
 
