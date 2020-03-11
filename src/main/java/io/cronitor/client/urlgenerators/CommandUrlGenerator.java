@@ -25,7 +25,7 @@ public class CommandUrlGenerator {
     }
 
 
-    public URL buildURI(String command, String monitorCode, String authKey, String message) throws URISyntaxException, MalformedURLException {
+    public URL buildURL(String command, String monitorCode, String authKey, String message) throws URISyntaxException, MalformedURLException {
         String baseURL;
         if (usePrimaryPingDomain) {
             baseURL = CommandUrlGenerator.BASE_URL;

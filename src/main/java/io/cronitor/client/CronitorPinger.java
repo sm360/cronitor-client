@@ -41,7 +41,7 @@ public class CronitorPinger {
 
     // methods below are left open to package for ease of testing purposes.
 	URL getURL(Boolean usePrimaryPingDomain, String command, String monitorCode, String apiKey, String message) throws IOException, URISyntaxException {
-		return new CommandUrlGenerator(usePrimaryPingDomain).buildURI(command, monitorCode, apiKey, message);
+		return new CommandUrlGenerator(usePrimaryPingDomain).buildURL(command, monitorCode, apiKey, message);
     }
 
     URL getURL(Boolean usePrimaryPingDomain, String monitorCode, int timeoutHours, String apiKey) throws IOException, URISyntaxException {
