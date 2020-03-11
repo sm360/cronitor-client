@@ -11,51 +11,70 @@ import io.cronitor.client.urlgenerators.CommandUrlGenerator;
 
 public class CronitorPinger {
 
-    private final static Logger logger = Logger.getLogger(CronitorPinger.class.getName());
+    public CronitorPinger() {
 
+        this.connection = null;
+    }
+
+
+
+    public HttpURLConnection connection;
+    private final static Logger logger = Logger.getLogger(CronitorPinger.class.getName());
     private final Integer cronitorPingTimeoutInSecond = 5;
 
     public void ping(String command, String monitorCode, String apiKey, String message) throws IOException, URISyntaxException {
-
+        logger.warning(String.format("PING"));
         for (int i=0; i<4; i++) {
-            Boolean useFallbackDomain = i > 1;
-            URL commandURL = new CommandUrlGenerator(useFallbackDomain).buildURI(command, monitorCode, apiKey, message);
-            if (!this.ping(commandURL)) {
-                continue;
-            }
-            return;
+            Boolean usePrimaryPingDomain = i < 2;
+            setConnection(getURL(usePrimaryPingDomain, command, monitorCode, apiKey, message));
+            if (_ping()) { return; }
         }
     }
 
     public void pause(String monitorCode, int timeoutHours, String apiKey) throws IOException, URISyntaxException {
         for (int i=0; i<4; i++) {
-            Boolean useFallbackDomain = i > 1;
-            URL commandURL = new CommandUrlGenerator(useFallbackDomain).buildPauseURI(monitorCode, timeoutHours, apiKey);
-            if (!this.ping(commandURL)) {
-                continue;
-            }
-            return;
+            Boolean usePrimaryPingDomain = i < 2;
+            setConnection(getURL(usePrimaryPingDomain, monitorCode, timeoutHours, apiKey));
+            if (_ping()) { return; }
         }
     }
 
-    private boolean ping(URL commandURL) throws IOException, URISyntaxException {
-        HttpURLConnection connection = (HttpURLConnection) commandURL.openConnection();
-        connection.setConnectTimeout(cronitorPingTimeoutInSecond * 1000);
+	public URL getURL(Boolean usePrimaryPingDomain, String command, String monitorCode, String apiKey, String message) throws IOException, URISyntaxException {
+		return new CommandUrlGenerator(usePrimaryPingDomain).buildURI(command, monitorCode, apiKey, message);
+    }
 
+    public URL getURL(Boolean usePrimaryPingDomain, String monitorCode, int timeoutHours, String apiKey) throws IOException, URISyntaxException {
+		return new CommandUrlGenerator(usePrimaryPingDomain).buildPauseURI(monitorCode, timeoutHours, apiKey);
+	}
+
+    private void setConnection(URL url) {
         try {
-            connection.connect();
-            connection.getInputStream();
-            if (connection.getResponseCode() >= 500 ) {
-                logger.warning(String.format("Failed to call url [%s] : an error occurred : [%d]", commandURL, connection.getResponseCode()));
+            this.connection = (HttpURLConnection) url.openConnection();
+            this.connection.setConnectTimeout(cronitorPingTimeoutInSecond * 1000);
+        } catch (IOException e) {
+            logger.warning(String.format("unable to establish connection to %s", url.getPath()));
+        }
+      }
+
+    private boolean _ping() throws URISyntaxException {
+        try {
+            this.connection.connect();
+            logger.warning(String.format("AFTER CONNECT!"));
+            this.connection.getInputStream();
+            logger.warning(String.format("AFTER INPUTSTREAM"));
+            if (this.connection.getResponseCode() >= 500 ) {
+                logger.warning(String.format("Failed to call url [%s] : an error occurred : [%d]", this.connection.getURL(), this.connection.getResponseCode()));
                 return false;
             }
-            connection.disconnect();
+            this.connection.disconnect();
         } catch (SocketTimeoutException ignore) {
-            logger.warning(String.format("Failed to call url [%s] : a timeout occurred after %d seconds : [%s]",
-                    commandURL, cronitorPingTimeoutInSecond, ignore));
+            logger.warning(String.format("Failed to call url [%s] : a timeout occurred after %d seconds : [%s]", this.connection.getURL(), cronitorPingTimeoutInSecond, ignore));
             return false;
+        } catch (IOException e) {
+            logger.warning(String.format("unable to establish connection to %s", this.connection.getURL()));
         }
         return true;
 
     }
+
 }

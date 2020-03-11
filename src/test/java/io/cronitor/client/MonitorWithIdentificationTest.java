@@ -19,47 +19,47 @@ public class MonitorWithIdentificationTest {
     @Mock
     private CronitorPinger cronitorPinger;
 
-    private String monitorCode = "customMonitorCode";
+    private String monitorCode = "d3x0c1";
 
     @Test
     public void can_start_monitor_with_minimal_requirements() throws Exception {
 
         client.run(monitorCode);
 
-        // verify(cronitorPinger).ping(Command.RUN.getValue(), "customMonitorCode", "customAuthKey", null);
-        verify(cronitorPinger).ping("run", "customMonitorCode", "customAuthKey", null);
+        // verify(cronitorPinger).ping(Command.RUN.getValue(), "d3x0c1", "customAuthKey", null);
+        verify(cronitorPinger).ping("run", "d3x0c1", "customAuthKey", null);
     }
 
     @Test
     public void can_start_monitor_with_message() throws Exception {
 
         client.run(monitorCode, "customRunMessage");
-        // verify(cronitorPinger).ping(Command.RUN.getValue(), "customMonitorCode", "customAuthKey", "customRunMessage");
-        verify(cronitorPinger).ping("run", "customMonitorCode", "customAuthKey", "customRunMessage");
+        // verify(cronitorPinger).ping(Command.RUN.getValue(), "d3x0c1", "customAuthKey", "customRunMessage");
+        verify(cronitorPinger).ping("run", "d3x0c1", "customAuthKey", "customRunMessage");
     }
 
     @Test
     public void can_complete_monitor_with_minimal_requirements() throws Exception {
 
         client.complete(monitorCode);
-        // verify(cronitorPinger).ping(Command.COMPLETE.getValue(), "customMonitorCode", "customAuthKey", null);
-        verify(cronitorPinger).ping("complete", "customMonitorCode", "customAuthKey", null);
+        // verify(cronitorPinger).ping(Command.COMPLETE.getValue(), "d3x0c1", "customAuthKey", null);
+        verify(cronitorPinger).ping("complete", "d3x0c1", "customAuthKey", null);
     }
 
     @Test
     public void can_complete_monitor_with_message() throws Exception {
 
         client.complete(monitorCode, "customCompleteMessage");
-        // verify(cronitorPinger).ping(Command.COMPLETE.getValue(), "customMonitorCode", "customAuthKey", "customRunMessage");
-        verify(cronitorPinger).ping("complete", "customMonitorCode", "customAuthKey", "customCompleteMessage");
+        // verify(cronitorPinger).ping(Command.COMPLETE.getValue(), "d3x0c1", "customAuthKey", "customRunMessage");
+        verify(cronitorPinger).ping("complete", "d3x0c1", "customAuthKey", "customCompleteMessage");
     }
 
     @Test
     public void can_fail_monitor_with_minimal_requirements() throws Exception {
 
         client.fail(monitorCode);
-        // verify(cronitorPinger).ping(Command.FAIL.getValue(), "customMonitorCode", "customAuthKey", "customRunMessage");
-        verify(cronitorPinger).ping("fail", "customMonitorCode", "customAuthKey", null);
+        // verify(cronitorPinger).ping(Command.FAIL.getValue(), "d3x0c1", "customAuthKey", "customRunMessage");
+        verify(cronitorPinger).ping("fail", "d3x0c1", "customAuthKey", null);
     }
 
     @Test
@@ -67,8 +67,8 @@ public class MonitorWithIdentificationTest {
 
         client.fail(monitorCode, "customFailMessage");
 
-        // verify(cronitorPinger).ping(Command.FAIL.getValue(), "customMonitorCode", "customAuthKey", "customRunMessage");
-        verify(cronitorPinger).ping("fail", "customMonitorCode", "customAuthKey", "customFailMessage");
+        // verify(cronitorPinger).ping(Command.FAIL.getValue(), "d3x0c1", "customAuthKey", "customRunMessage");
+        verify(cronitorPinger).ping("fail", "d3x0c1", "customAuthKey", "customFailMessage");
     }
 
     @Test
