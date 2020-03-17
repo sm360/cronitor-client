@@ -5,11 +5,3 @@ services:
     image: cronitor:java
     volumes:
       - .:/cronitor
-  test:
-    image: cronitor:java
-    working_dir: /cronitor
-
-    depends_on:
-      - cronitor-java
-    volumes:
-      - .:/cronitor
