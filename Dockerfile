@@ -14,3 +14,4 @@ RUN mvn -f pom.xml clean package
 # gpg --gen-key
 # git config --global user.email "august@cronitor.io"
 # git config --global user.name "August Flanagan"
+# mvn clean deploy -s settings.xml -Prelease
