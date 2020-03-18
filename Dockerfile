@@ -12,6 +12,6 @@ RUN mvn -f pom.xml clean package
 
 # To release a new version the following commands need to be run from the container
 # gpg --gen-key
-# git config --global user.email "august@cronitor.io"
-# git config --global user.name "August Flanagan"
+# gpg --send-keys --keyserver keys.openpgp.org
+# mvn mvn versions:set -DnewVersion=X.X.X
 # mvn clean deploy -s settings.xml -Prelease
