@@ -1,5 +1,11 @@
 # cronitor-client
 
+## Project state
+This repo is read-only in order to keep record of the 1.0.1 version which is now deprecated.
+
+https://github.com/cronitorio/cronitor-java forked from this repo in March 2020 and it is now the official one! 
+It is directly maintained by https://github.com/cronitorio team and his founder https://github.com/aflanagan
+
 ## What is it ?
 Cronitor-client is a simple Java library designed to help monitor your app. With the help of www.cronitor.io, you can easily monitor the routines of your Java projects.
 
